@@ -1,0 +1,81 @@
+// program to make pair of two sets and apply operations 
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int a1,a2,i,j;		//a1 is size of domain  &  a2 size of co-domain
+    int A[10],B[10];	//A is considered as domain & B as co-domain
+    int AB;				
+    printf("Enter Size of Domain not greater than 10\n");
+    scanf("%d",&a1);
+    printf("Enter Size of Co-Domain not greater than 10\n");
+    scanf("%d",&a2);
+   
+    printf("Enter Values of Domain\n");
+    for(i=0;i<a1;i++)		
+        scanf("%d",&A[i]);		// stores elements of set A
+    printf("Enter Values of Co-Domain\n");
+    for(i=0;i<a2;i++)
+        scanf("%d",&B[i]);			// stores elements of set B
+   	while(1)
+   	{
+	   printf("\npairs of AB =");
+   	
+   for(i=0;i<a1;i++)
+			{
+				for(j=0;j<a2;j++)
+				{
+					printf("(%d,%d),",A[i],B[j]);
+				
+				}
+			}
+    printf("\n\nSelect operation you want to apply \npress 1 for A/B pairs\t press 2 for A=B pairs\tpress 3 for A^2=B pairs \t press 4 to exit\n");
+    scanf("%d",&AB);
+    switch(AB)
+    {
+    	case 1:
+    		printf("A/B ={");
+			for(i=0;i<a1;i++)
+			{
+				for(j=0;j<a2;j++)
+				{
+					if(B[j]%A[i]==0)
+					printf("(%d,%d),",A[i],B[j]);
+				
+				}
+			}
+			printf("}");
+    		break;
+		case 2:
+			printf("A=B ={");
+			for(i=0;i<a1;i++)
+			{
+				for(j=0;j<a2;j++)
+				{
+					if(A[i]==B[j])
+					printf("(%d,%d),",A[i],B[j]);
+						else
+				printf("no possible pair found");	
+				}				
+			} 
+			printf("}");   		
+    		break;
+		case 3:
+    		printf("A*A=B ={");
+			for(i=0;i<a1;i++)
+			{
+				for(j=0;j<a2;j++)
+				{
+					if((A[i]*A[i])==B[j])
+					printf("(%d,%d),",A[i],B[j]);	
+					
+				}				
+			} 
+			printf("}");
+				
+    		break;   
+			case 4:
+			exit(1);	
+	}	}return(0);
+    getch();
+}
